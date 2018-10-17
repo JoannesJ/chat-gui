@@ -1,16 +1,5 @@
 @import "common";
 
-// infinite loop animation option
-@mixin pngAnimate($animation, $duration, $timingFunction, $iterationCount) {
-  animation: $animation $duration $timingFunction $iterationCount;
-  &:hover {
-    animation: $animation $duration $timingFunction infinite;
-  }
-  &-animate-forever {
-    animation: $animation $duration $timingFunction infinite;
-  }
-}
-
 @keyframes flash {
     0%, 50%, 100% { opacity: 1 }
     25%, 75% { opacity: 0 }
@@ -491,63 +480,81 @@
     100% { top: 12px; }
 }
 
-@keyframes MiyanoHype-anim {
-  100% { background-position: -320px; }
+$spritesDir : '../../emotes/emoticons-animated/';
+
+@mixin sprite-animation(
+        $file-name,
+        $frame-count,
+        $sprite-width,
+        $sprite-height,
+        $animation-length,
+        $repeat,
+        $file-ext: '.png') {
+
+    $path: $spritesDir + $file-name + $file-ext;
+
+    @keyframes #{$file-name}-anim {
+        100% { background-position: -#{$sprite-width}; }
+    }
+
+    .chat-emote-#{$file-name}{
+        width: $sprite-width / $frame-count;
+        height: $sprite-height;
+        margin-top: -$sprite-height;
+        background: url($path) left center;
+        animation: #{$file-name}-anim $animation-length steps($frame-count) $repeat;
+
+        &:hover {
+            animation: #{$file-name}-anim $animation-length steps($frame-count) infinite;
+        }
+
+        &-animate-forever {
+            animation: #{$file-name}-anim $animation-length steps($frame-count) infinite;
+        }
+    }
 }
 
-.chat-emote-MiyanoHype {
-  width: 32px;
-  height: 32px;
-  margin-top: -32px;
-  background: url('../../emotes/emoticons-animated/MiyanoHype.png') left center;
-  @include pngAnimate(MiyanoHype-anim, 800ms, steps(10), 3);
-}
+@include sprite-animation(
+    $file-name: MiyanoHype,
+    $frame-count: 10,
+    $sprite-width: 320px,
+    $sprite-height: 32px,
+    $animation-length: 800ms,
+    $repeat: 3
+);
 
-@keyframes Clap-anim {
-  100% { background-position: -44px; }
-}
+@include sprite-animation(
+    $file-name: Clap,
+    $frame-count: 2,
+    $sprite-width: 44px,
+    $sprite-height: 32px,
+    $animation-length: 400ms,
+    $repeat: 5
+);
 
-.chat-emote-Clap {
-  width: 22px;
-  height: 32px;
-  margin-top: -32px;
-  background: url('../../emotes/emoticons-animated/Clap.png') left center;
-  @include pngAnimate(Clap-anim, 400ms, steps(2), 5);
-}
+@include sprite-animation(
+    $file-name: COGGERS,
+    $frame-count: 60,
+    $sprite-width: 1920px,
+    $sprite-height: 32px,
+    $animation-length: 800ms,
+    $repeat: 2
+);
 
-@keyframes COGGERS-anim {
-  100% { background-position: -1920px; }
-}
+@include sprite-animation(
+    $file-name: CuckCrab,
+    $frame-count: 126,
+    $sprite-width: 4032px,
+    $sprite-height: 30px,
+    $animation-length: 4000ms,
+    $repeat: 2
+);
 
-.chat-emote-COGGERS {
-  width: 32px;
-  height: 32px;
-  margin-top: -32px;
-  background: url('../../emotes/emoticons-animated/COGGERS.png') left center;
-  @include pngAnimate(COGGERS-anim, 800ms, steps(60), 2);
-}
-
-@keyframes CuckCrab-anim {
-  100% { background-position: -4032px; }
-}
-
-.chat-emote-CuckCrab {
-  width: 32px;
-  height: 30px;
-  margin-top: -30px;
-  background: url('../../emotes/emoticons-animated/CuckCrab.png') left center;
-  @include pngAnimate(CuckCrab-anim, 4000ms, steps(126), 2);
-}
-
-@keyframes RaveDoge-anim {
-  100% { background-position: -1276px; }
-}
-
-.chat-emote-RaveDoge {
-  width: 44px;
-  height: 30px;
-  margin-top: -30px;
-  background: url('../../emotes/emoticons-animated/RaveDoge.png') left center;
-  @include pngAnimate(RaveDoge-anim, 2000ms, steps(29), 3);
-}
-
+@include sprite-animation(
+    $file-name: RaveDoge,
+    $frame-count: 29,
+    $sprite-width: 1276px,
+    $sprite-height: 30px,
+    $animation-length: 2000ms,
+    $repeat: 3
+);
