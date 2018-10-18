@@ -69,11 +69,9 @@
 
 @include emote-css-animation(DANKMEMES, 1s, 2) {
     0%, 100% {
-        -webkit-filter: hue-rotate(0deg);
         filter: hue-rotate(0deg);
     }
     50% {
-        -webkit-filter: hue-rotate(360deg);
         filter: hue-rotate(360deg);
     }
 }
@@ -84,11 +82,9 @@
     }
     10% {
         opacity: 0.5;
-        -webkit-filter: hue-rotate(0deg) ;
         filter: hue-rotate(0deg) ;
     }
     11% {
-        -webkit-filter: hue-rotate(170deg) ;
         filter: hue-rotate(170deg) ;
     }
     35% {
@@ -96,11 +92,9 @@
     }
     50% {
         opacity: 0.2;
-        -webkit-filter: hue-rotate(170deg) ;
         filter: hue-rotate(170deg) ;
     }
     51% {
-        -webkit-filter: hue-rotate(310deg) ;
         filter: hue-rotate(310deg) ;
     }
     65% {
@@ -108,11 +102,9 @@
     }
     90%{
         opacity: 0.2;
-        -webkit-filter: hue-rotate(310deg) ;
         filter: hue-rotate(310deg) ;
     }
     91% {
-        -webkit-filter: hue-rotate(0deg) ;
         filter: hue-rotate(0deg) ;
     }
 }
@@ -132,19 +124,16 @@
     }
     15.1% {
         transform: scale(0.5);
-        -webkit-filter: hue-rotate(-5deg);
         filter: hue-rotate(-5deg);
     }
     30.1% {
         transform: scale(0.75);
         opacity: 0.75;
-        -webkit-filter: hue-rotate(-15deg) saturate(125%);
         filter: hue-rotate(-5deg) saturate(125%);;
 
     }
     60%{
         transform: scale(1.25);
-        -webkit-filter: hue-rotate(-25deg) saturate(150%);
         filter: hue-rotate(-25deg) saturate(150%);;
 
         opacity: 0.75;
@@ -209,18 +198,16 @@
 
 @keyframes dankmemes-anim {
     0%, 100% {
-        -webkit-filter: hue-rotate(0deg);
         filter: hue-rotate(0deg);
     }
     50% {
-        -webkit-filter: hue-rotate(360deg);
         filter: hue-rotate(360deg);
     }
 }
 
 @keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100%{ -webkit-transform: rotate(-360deg); }
+    0% { transform: rotate(0deg); }
+    100%{ transform: rotate(-360deg); }
 }
 
 @keyframes Shekels-anim {
@@ -236,7 +223,6 @@
 }
 
 .chat-emote.chat-emote-NOBULLY:hover {
-  -webkit-filter: invert(100%);
   filter: invert(100%);
 }
 
