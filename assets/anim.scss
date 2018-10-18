@@ -266,7 +266,7 @@ $context-css-animated-emote-mixin: false;
 }
 
 .chat-emote.chat-emote-NOBULLY:hover {
-  filter: invert(100%);
+    filter: invert(100%);
 }
 
 $spritesDir : '../../emotes/emoticons-animated/';
