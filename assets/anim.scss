@@ -7,29 +7,29 @@
     $can-animate-forever: false) {
 
     .chat-emote-#{$name} {
-        animation: #{$name} $duration $repeat;
+        animation: #{$name}-anim $duration $repeat;
 
         &:hover {
-            animation: #{$name} $duration infinite;
+            animation: #{$name}-anim $duration infinite;
         }
 
         @if($can-animate-forever) {
             &-animate-forever {
-                animation: #{$name} $duration infinite;
+                animation: #{$name}-anim $duration infinite;
             }
         }
     }
 
     @at-root {
-        @keyframes #{$name} {
+        @keyframes #{$name}-anim {
             @content;
         }
     }
 }
 
 @include emote-css-animation(OverRustle, 100ms, 7) {
-    0% { left: 0 }
-    100% { left: 3px }
+    0% { left: 0; }
+    100% { left: 3px; }
 }
 
 @include emote-css-animation(MLADY, 250ms, 3) {
@@ -56,7 +56,7 @@
         transform: translate(0px 0px);
     }
     25% {
-        transform: translate(0px,4px)
+        transform: translate(0px, 4px);
     }
     75% {
         transform: rotate(-10deg);
@@ -82,30 +82,30 @@
     }
     10% {
         opacity: 0.5;
-        filter: hue-rotate(0deg) ;
+        filter: hue-rotate(0deg);
     }
     11% {
-        filter: hue-rotate(170deg) ;
+        filter: hue-rotate(170deg);
     }
     35% {
-        opacity: 1
+        opacity: 1;
     }
     50% {
         opacity: 0.2;
-        filter: hue-rotate(170deg) ;
+        filter: hue-rotate(170deg);
     }
     51% {
-        filter: hue-rotate(310deg) ;
+        filter: hue-rotate(310deg);
     }
     65% {
         opacity: 1;
     }
     90%{
         opacity: 0.2;
-        filter: hue-rotate(310deg) ;
+        filter: hue-rotate(310deg);
     }
     91% {
-        filter: hue-rotate(0deg) ;
+        filter: hue-rotate(0deg);
     }
 }
 
@@ -114,13 +114,13 @@
         transform: translate(0px 0px) scale(0.5);
     }
     5%,15%,25%,35% {
-        transform: translate(0px,3px)
+        transform: translate(0px, 3px);
     }
     15%,35%,55% {
-        transform: translate(0px,-3px)
+        transform: translate(0px, -3px);
     }
     10%,20%,30%,40%,50%{
-        transform: translate(3px,0px)
+        transform: translate(3px, 0px);
     }
     15.1% {
         transform: scale(0.5);
@@ -129,13 +129,12 @@
     30.1% {
         transform: scale(0.75);
         opacity: 0.75;
-        filter: hue-rotate(-5deg) saturate(125%);;
+        filter: hue-rotate(-5deg) saturate(125%);
 
     }
     60%{
         transform: scale(1.25);
-        filter: hue-rotate(-25deg) saturate(150%);;
-
+        filter: hue-rotate(-25deg) saturate(150%);
         opacity: 0.75;
     }
     70%{
@@ -146,7 +145,7 @@
         transform: scale(0.1);
     }
     100%{
-        transform: translate(0px,0px) scale(1.0);
+        transform: translate(0px, 0px) scale(1.0);
         opacity: 1;
     }
 }
@@ -177,11 +176,6 @@
     to { left: 3px; }
 }
 
-@keyframes flash {
-    0%, 50%, 100% { opacity: 1 }
-    25%, 75% { opacity: 0 }
-}
-
 @keyframes emote-hit {
     0% { color: #B91010; font-size:200%; }
     1% { color: $color-light; font-size:190%; }
@@ -205,11 +199,6 @@
     }
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100%{ transform: rotate(-360deg); }
-}
-
 @keyframes Shekels-anim {
     0% {
         top: -25px;
@@ -227,13 +216,8 @@
 }
 
 @include emote-css-animation(ITSRAWWW, 100ms, 7) {
-  from {
-    left: 0;
-  }
-
-  to {
-    left: 2px;
-  }
+    0% { left: 0; }
+    100% { left: 2px; }
 }
 
 @include emote-css-animation(DJPepo, 500ms, 7, true) {
